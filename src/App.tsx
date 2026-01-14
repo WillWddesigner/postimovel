@@ -279,7 +279,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Right Column: High-End Preview */}
-      <div className="flex-1 bg-slate-100/30 flex items-center justify-center p-4 md:p-14 relative md:overflow-hidden">
+      <div className="flex-1 bg-slate-100/30 flex items-center justify-center p-4 md:p-14 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -mr-48 -mt-48 opacity-50" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -ml-48 -mb-48 opacity-50" />
