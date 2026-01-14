@@ -30,6 +30,7 @@ interface PropertyData {
   image: string | null;
   image2: string | null;
   image3: string | null;
+  image4: string | null;
   logo: string | null;
   primaryColor: string;
   secondaryColor: string;
@@ -48,6 +49,7 @@ const DEFAULT_DATA: PropertyData = {
   image: null,
   image2: null,
   image3: null,
+  image4: null,
   logo: null,
   primaryColor: '#ffffff',
   secondaryColor: '#d4af37',
@@ -81,7 +83,7 @@ const App: React.FC = () => {
     setData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>, type: 'image' | 'image2' | 'image3' | 'logo') => {
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>, type: 'image' | 'image2' | 'image3' | 'image4' | 'logo') => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -179,10 +181,10 @@ const App: React.FC = () => {
               Mídia & Design <div className="flex-1 h-px bg-slate-100" />
             </h2>
 
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-3">
-                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Foto 1</label>
-                <div className="relative group cursor-pointer h-28 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Foto 1 (Capa)</label>
+                <div className="relative group cursor-pointer h-32 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
                   <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'image')} className="absolute inset-0 opacity-0 cursor-pointer" />
                   {data.image ? (
                     <img src={data.image} alt="Preview" className="h-full w-full object-cover rounded-[1.4rem]" />
@@ -194,7 +196,7 @@ const App: React.FC = () => {
 
               <div className="flex flex-col gap-3">
                 <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Foto 2</label>
-                <div className="relative group cursor-pointer h-28 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
+                <div className="relative group cursor-pointer h-32 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
                   <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'image2')} className="absolute inset-0 opacity-0 cursor-pointer" />
                   {data.image2 ? (
                     <img src={data.image2} alt="Preview" className="h-full w-full object-cover rounded-[1.4rem]" />
@@ -206,10 +208,22 @@ const App: React.FC = () => {
 
               <div className="flex flex-col gap-3">
                 <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Foto 3</label>
-                <div className="relative group cursor-pointer h-28 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
+                <div className="relative group cursor-pointer h-32 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
                   <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'image3')} className="absolute inset-0 opacity-0 cursor-pointer" />
                   {data.image3 ? (
                     <img src={data.image3} alt="Preview" className="h-full w-full object-cover rounded-[1.4rem]" />
+                  ) : (
+                    <Upload className="text-slate-300" size={24} />
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Foto 4</label>
+                <div className="relative group cursor-pointer h-32 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[1.5rem] flex flex-col items-center justify-center transition-all hover:bg-slate-100">
+                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'image4')} className="absolute inset-0 opacity-0 cursor-pointer" />
+                  {data.image4 ? (
+                    <img src={data.image4} alt="Preview" className="h-full w-full object-cover rounded-[1.4rem]" />
                   ) : (
                     <Upload className="text-slate-300" size={24} />
                   )}
@@ -305,25 +319,37 @@ const App: React.FC = () => {
                 )}
               </div>
 
-              {/* Secondary Photos (Bottom 25% of image section) */}
-              <div className="h-[25%] w-full flex border-t-2 border-white">
-                <div className="flex-1 h-full border-r-2 border-white overflow-hidden relative">
+              {/* Secondary Photos (Bottom 28% of image section) */}
+              <div className="h-[28%] w-full flex border-t-2 border-white">
+                <div className="flex-1 h-full border-r-2 border-white overflow-hidden relative group">
                   {data.image2 ? (
-                    <img src={data.image2} alt="" className="w-full h-full object-cover" />
+                    <img src={data.image2} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   ) : (
                     <div className="w-full h-full bg-slate-100 flex items-center justify-center">
-                      <Home className="text-slate-200" size={24} />
+                      <Home className="text-slate-200" size={20} />
                     </div>
                   )}
+                  <div className="absolute inset-0 bg-black/10 mix-blend-multiply" />
                 </div>
-                <div className="flex-1 h-full overflow-hidden relative">
+                <div className="flex-1 h-full border-r-2 border-white overflow-hidden relative group">
                   {data.image3 ? (
-                    <img src={data.image3} alt="" className="w-full h-full object-cover" />
+                    <img src={data.image3} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   ) : (
                     <div className="w-full h-full bg-slate-100 flex items-center justify-center">
-                      <Home className="text-slate-200" size={24} />
+                      <Home className="text-slate-200" size={20} />
                     </div>
                   )}
+                  <div className="absolute inset-0 bg-black/10 mix-blend-multiply" />
+                </div>
+                <div className="flex-1 h-full overflow-hidden relative group">
+                  {data.image4 ? (
+                    <img src={data.image4} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  ) : (
+                    <div className="w-full h-full bg-slate-100 flex items-center justify-center">
+                      <Home className="text-slate-200" size={20} />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/10 mix-blend-multiply" />
                 </div>
               </div>
 
