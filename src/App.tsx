@@ -96,7 +96,8 @@ const App: React.FC = () => {
     if (cardRef.current === null) return;
     setIsExporting(true);
     try {
-      const dataUrl = await toPng(cardRef.current, { cacheBust: true, quality: 1, pixelRatio: 2 });
+      await document.fonts.ready;
+      const dataUrl = await toPng(cardRef.current, { quality: 1, pixelRatio: 2 });
       const link = document.createElement('a');
       link.download = `postimoveis-${data.title.toLowerCase().replace(/\s+/g, '-')}.png`;
       link.href = dataUrl;
