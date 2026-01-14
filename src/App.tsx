@@ -284,7 +284,7 @@ const App: React.FC = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -mr-48 -mt-48 opacity-50" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -ml-48 -mb-48 opacity-50" />
 
-        <div className="relative w-full max-w-[600px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] rounded-[3rem] overflow-hidden border-[12px] border-white ring-1 ring-slate-100">
+        <div className="relative w-full max-w-[600px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] rounded-[2rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[12px] border-white ring-1 ring-slate-100">
           {/* Card aspect-ratio 9:16 */}
           <div
             ref={cardRef}
@@ -339,37 +339,37 @@ const App: React.FC = () => {
 
             {/* Content Section (Bottom 42%) */}
             <div
-              className="h-[42%] w-full relative z-10 p-9 flex flex-col justify-between"
+              className="h-[42%] w-full relative z-10 p-5 md:p-9 flex flex-col justify-between"
               style={{ backgroundColor: data.primaryColor, color: data.textColor }}
             >
               <div className="space-y-5">
                 <div className="space-y-2">
                   <div className="w-12 h-1 rounded-full" style={{ backgroundColor: data.secondaryColor }} />
-                  <h3 className="text-3xl font-extrabold leading-tight font-['Outfit'] tracking-tight" style={{ color: data.textColor }}>
+                  <h3 className="text-xl md:text-3xl font-extrabold leading-tight font-['Outfit'] tracking-tight" style={{ color: data.textColor }}>
                     {data.title || 'Incrível Mansão Moderna'}
                   </h3>
-                  <div className="flex items-center gap-2 text-xs font-bold tracking-wide uppercase opacity-60">
-                    <MapPin size={16} /> {data.location || 'Localização Premium'}
+                  <div className="flex items-center gap-2 text-[10px] md:text-xs font-bold tracking-wide uppercase opacity-60">
+                    <MapPin className="w-3 h-3 md:w-4 md:h-4" /> {data.location || 'Localização Premium'}
                   </div>
                 </div>
 
                 {/* Attributes Grid */}
-                <div className="grid grid-cols-4 gap-4 pt-6 border-t" style={{ borderColor: `${data.textColor}20` }}>
-                  <div className="flex flex-col items-center gap-2 opacity-60">
-                    <Maximize2 size={24} />
-                    <span className="text-xs font-bold">{data.area || '0'}m²</span>
+                <div className="grid grid-cols-4 gap-2 md:gap-4 pt-4 md:pt-6 border-t" style={{ borderColor: `${data.textColor}20` }}>
+                  <div className="flex flex-col items-center gap-1 md:gap-2 opacity-60">
+                    <Maximize2 className="w-4 h-4 md:w-6 md:h-6" />
+                    <span className="text-[10px] md:text-xs font-bold">{data.area || '0'}m²</span>
                   </div>
-                  <div className="flex flex-col items-center gap-2 opacity-60">
-                    <BedDouble size={24} />
-                    <span className="text-xs font-bold">{data.bedrooms || '0'}</span>
+                  <div className="flex flex-col items-center gap-1 md:gap-2 opacity-60">
+                    <BedDouble className="w-4 h-4 md:w-6 md:h-6" />
+                    <span className="text-[10px] md:text-xs font-bold">{data.bedrooms || '0'}</span>
                   </div>
-                  <div className="flex flex-col items-center gap-2 opacity-60">
-                    <Bath size={24} />
-                    <span className="text-xs font-bold">{data.bathrooms || '0'}</span>
+                  <div className="flex flex-col items-center gap-1 md:gap-2 opacity-60">
+                    <Bath className="w-4 h-4 md:w-6 md:h-6" />
+                    <span className="text-[10px] md:text-xs font-bold">{data.bathrooms || '0'}</span>
                   </div>
-                  <div className="flex flex-col items-center gap-2 opacity-60">
-                    <Car size={24} />
-                    <span className="text-xs font-bold">{data.parking || '0'}</span>
+                  <div className="flex flex-col items-center gap-1 md:gap-2 opacity-60">
+                    <Car className="w-4 h-4 md:w-6 md:h-6" />
+                    <span className="text-[10px] md:text-xs font-bold">{data.parking || '0'}</span>
                   </div>
                 </div>
               </div>
@@ -377,14 +377,14 @@ const App: React.FC = () => {
               {/* Footer Investment */}
               <div className="flex items-center justify-between pt-5 border-t" style={{ borderColor: `${data.textColor}20` }}>
                 <div className="space-y-0">
-                  <p className="text-[9px] font-black uppercase tracking-widest opacity-60">Investimento</p>
-                  <p className="text-2xl font-extrabold font-['Outfit'] tracking-tighter" style={{ color: data.textColor }}>
+                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest opacity-60">Investimento</p>
+                  <p className="text-lg md:text-2xl font-extrabold font-['Outfit'] tracking-tighter" style={{ color: data.textColor }}>
                     {data.price || 'Sob Consulta'}
                   </p>
                 </div>
 
                 {data.logo && (
-                  <img src={data.logo} alt="Logo" className="h-24 w-auto object-contain" />
+                  <img src={data.logo} alt="Logo" className="h-16 md:h-24 w-auto object-contain" />
                 )}
               </div>
             </div>
