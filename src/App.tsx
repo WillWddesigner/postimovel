@@ -109,9 +109,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row overflow-hidden font-['Inter']">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col md:flex-row md:overflow-hidden font-['Inter']">
       {/* Left Column: Light Form */}
-      <div className="w-full md:w-1/2 lg:w-[500px] p-8 md:p-14 overflow-y-auto max-h-screen scrollbar-hide border-r border-slate-200 bg-white">
+      <div className="w-full md:w-1/2 lg:w-[500px] p-8 md:p-14 md:overflow-y-auto md:max-h-screen scrollbar-hide border-r border-slate-200 bg-white">
         <header className="mb-14 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-4 mb-5">
             <div className="p-3 bg-slate-900 rounded-[1.25rem] shadow-xl shadow-slate-200">
@@ -279,7 +279,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Right Column: High-End Preview */}
-      <div className="flex-1 bg-slate-100/30 flex items-center justify-center p-8 md:p-14 relative overflow-hidden">
+      <div className="flex-1 bg-slate-100/30 flex items-center justify-center p-4 md:p-14 relative md:overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -mr-48 -mt-48 opacity-50" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-200 rounded-full blur-[120px] -ml-48 -mb-48 opacity-50" />
